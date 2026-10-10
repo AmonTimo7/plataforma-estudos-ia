@@ -1,20 +1,31 @@
 # Tira-Dúvidas IA
 
-Plataforma que resolve questões escolares com IA (Claude). Flask + HTML/CSS/JS puro.
+Plataforma que resolve questões escolares com IA gratuita (Groq). 100% JavaScript, sem dependências.
 
-## Rodar
+## Rodar no seu computador
 
-IA gratuita: Groq (plano grátis oficial, aceita foto da questão).
-Crie a chave em https://console.groq.com/keys e cole em `GROQ_API_KEY` no `.env`.
+Precisa do Node 20 ou mais novo. Crie o arquivo `.env` com a chave gratuita da Groq
+(https://console.groq.com/keys):
 
 ```
-python -m pip install -r requirements.txt
-python app.py
+GROQ_API_KEY=cole-sua-chave-aqui
+```
+
+```
+npm start
 ```
 
 Abra http://localhost:5000
 
+## Colocar online (Vercel, grátis)
+
+1. Em https://vercel.com, importe este repositório do GitHub.
+2. Em *Settings > Environment Variables*, crie `GROQ_API_KEY` com a sua chave.
+3. Deploy. A Vercel serve `public/` e transforma `api/*.js` em funções.
+
 ## Estrutura
 
-- `app.py` — servidor Flask, rota `/api/perguntar` (texto + foto + histórico)
-- `static/` — `index.html`, `style.css`, `app.js`
+- `public/` — tela (HTML, CSS e JS do navegador)
+- `lib/ia.js` — lógica: validação, prompt do tutor e chamada à Groq
+- `server.js` — servidor local (sem dependências)
+- `api/` — as mesmas rotas como funções da Vercel
