@@ -1,0 +1,11 @@
+{
+  "name": "plataforma-estudos-ia",
+  "version": "2.0.0",
+  "description": "Plataforma que resolve questoes escolares com IA gratuita (Groq). 100% JavaScript.",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --watch --env-file-if-exists=.env server.js"
+  }
+}
