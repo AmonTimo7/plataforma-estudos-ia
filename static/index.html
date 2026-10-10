@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tira-Dúvidas IA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-in">
+      <a class="logo" href="/" aria-label="Tira-Dúvidas IA">
+        <span class="logo-icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/></svg>
+        </span>
+        Tira-Dúvidas <b>IA</b>
+      </a>
+      <button type="button" class="botao-suave" id="limpar">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        Nova conversa
+      </button>
+    </div>
+  </header>
+
+  <main class="conteudo">
+    <section class="conversa" id="conversa" aria-live="polite">
+      <div class="hero" id="vazio">
+        <h1>O que vamos <span>estudar</span> hoje?</h1>
+        <p>Digite uma questão ou envie a foto e receba a resolução explicada passo a passo.</p>
+        <div class="sugestoes">
+          <button type="button" class="cartao-sug" data-materia="Matemática" data-texto="Resolva 2x + 6 = 14 e explique cada passo.">
+            <span class="sug-tag">Matemática</span>
+            Resolva 2x + 6 = 14
+          </button>
+          <button type="button" class="cartao-sug" data-materia="Biologia" data-texto="Explique a fotossíntese de forma simples.">
+            <span class="sug-tag">Biologia</span>
+            Explique a fotossíntese
+          </button>
+          <button type="button" class="cartao-sug" data-materia="Física" data-texto="Um carro vai de 0 a 20 m/s em 5 s. Qual a aceleração?">
+            <span class="sug-tag">Física</span>
+            Calcule a aceleração de um carro
+          </button>
+          <button type="button" class="cartao-sug" data-materia="História" data-texto="Quais foram as causas da Revolução Francesa?">
+            <span class="sug-tag">História</span>
+            Causas da Revolução Francesa
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <form class="compositor" id="form">
+      <div class="previa" id="previa" hidden>
+        <img id="previa-img" alt="Foto da questão">
+        <button type="button" id="remover-img" aria-label="Remover foto">×</button>
+      </div>
+
+      <textarea id="pergunta" rows="1" placeholder="Digite ou cole a questão aqui..." aria-label="Sua pergunta"></textarea>
+
+      <div class="barra">
+        <div class="seletores">
+          <label class="anexo" title="Anexar foto da questão">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 12-8.5 8.5a5.5 5.5 0 0 1-7.8-7.8L13.2 4a3.7 3.7 0 0 1 5.3 5.3L10 17.8a1.8 1.8 0 0 1-2.6-2.6L15 7.6"/></svg>
+            <span>Foto</span>
+            <input type="file" id="arquivo" accept="image/png,image/jpeg,image/webp" hidden>
+          </label>
+          <select id="materia" aria-label="Matéria"></select>
+          <select id="nivel" aria-label="Nível">
+            <option value="fundamental">Fundamental</option>
+            <option value="medio" selected>Médio</option>
+            <option value="vestibular">ENEM / Vestibular</option>
+          </select>
+        </div>
+        <button type="submit" id="enviar">
+          Resolver
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </form>
+    <p class="aviso">A IA pode errar. Confira os resultados importantes.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
